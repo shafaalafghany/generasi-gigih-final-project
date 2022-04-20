@@ -24,4 +24,6 @@ RSpec.describe User, type: :model do
 
     expect(user.errors[:user_password]).to include("can't be blank")
   end
+
+  it 'is invalid with a duplicate username'
 end
