@@ -1,25 +1,33 @@
-# Rails on Replit
+# Generasi GIGIH Final Project Backend: Gigih Family Catering
+![](https://github.com/shafaalafghany/generasi-gigih-final-project/blob/master/assets/generasi%20gigih.png)
+This repo contains code for Generasi GIGIH Final project in the Backend Track. The problem this project is to make an app for helping the owner. Like other app, the owner can create, update, read and delete menu, the owner can add and update customer and customer's order and the owner can see daily report of orders.
+## Prerequisite to run application locally
 
-This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
+To run this app you need to install some dependencies below:
+* install Ruby, for developing this app I use ruby 3.0.0
+* install Ruby on Rails
+```sh
+gem install rails
+```
+* clone this repo and run this command to install dependencies that app needed
+```sh
+bundle install
+```
+* run this command to start the app
+```sh
+rails s
+```
 
-This template was generated using `rails new` (after you install the `rails` gem from the packager sidebar) so you can always do that if you prefer to set it up from scratch. The only had two make config changes we had to make to run it on Replit:
+## Test
+for testing I use rspec. Please make sure you already installed it.
+```sh
+gem install rspec
+```
+to run the test you can run by command below. (actually I prefer to use format document in rspec)
+```sh
+rspec -fd
+```
 
-- bind the app on `0.0.0.0` instead of `localhost` (see `.replit`)
-- allow `*.repl.co` hosts (see `config/environments/development.rb`)
-- allow the app to be iframed on `replit.com` (see `config/application.rb`)
-
-## Running the app
-
-Simple hit run! You can edit the run command from the `.replit` file.
-
-## Running commands
-
-Start every command with `bundle exec` so that it runs in the context of the installed gems environment. The console pane will give you output from the server but you can run arbitrary command from the shell without stopping the server.
-
-## Database
-
-SQLite would work in development but we don't recommend running it in production. Instead look into using the built-in [Replit database](http://docs.replit.com/misc/database). Otherwise you are welcome to connect databases from your favorite provider. 
-
-## Help
-
-If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+## ERD scheme
+For the database I build shcema like in the picture.
+![](https://github.com/shafaalafghany/generasi-gigih-final-project/blob/master/assets/erd.jpg)
