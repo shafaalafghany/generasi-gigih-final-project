@@ -16,4 +16,6 @@ RSpec.describe User, type: :model do
 
     expect(user.errors[:user_username]).to include("can't be blank")
   end
+
+  it 'is invalid without a password'
 end
