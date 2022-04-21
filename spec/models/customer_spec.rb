@@ -33,6 +33,14 @@ RSpec.describe Customer, type: :model do
     expect(customer.errors[:customer_phone]).to include("can't be blank")
   end
 
+  it 'is invalid without an address' do
+    customer = FactoryBot.build(:customer, customer_address: nil)
+
+    customer.valid?
+
+    expect(customer.errors[:customer_address]).to include("can't be blank")
+  end
+
   it 'is invalid with a duplicate email' do
     customer1 = FactoryBot.create(:customer, customer_email: 'example@domain.com')
     customer2 = FactoryBot.build(:customer, customer_email: 'example@domain.com')
