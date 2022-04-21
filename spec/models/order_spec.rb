@@ -24,4 +24,12 @@ RSpec.describe Order, type: :model do
 
     expect(order.errors[:order_total_price]).to include("can't be blank")
   end
+
+  it 'is invalid without date' do
+    order = FactoryBot.build(:order, order_date: nil)
+
+    order.valid?
+
+    expect(order.errors[:order_date]).to include("can't be blank")
+  end
 end
