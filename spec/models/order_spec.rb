@@ -40,4 +40,12 @@ RSpec.describe Order, type: :model do
 
     expect(order.errors[:customer_id]).to include("can't be blank")
   end
+
+  it 'is invalid without user_id' do
+    order = FactoryBot.build(:order, user_id: nil)
+
+    order.valid?
+
+    expect(order.errors[:user_id]).to include("can't be blank")
+  end
 end
