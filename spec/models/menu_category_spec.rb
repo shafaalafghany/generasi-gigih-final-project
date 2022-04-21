@@ -10,7 +10,11 @@ RSpec.describe MenuCategory, type: :model do
   end
 
   it 'is valid with menu_id and category_id' do
-    expect(FactoryBot.build(:menu_category)).to be_valid
+    menu = FactoryBot.create(:menu)
+    category = FactoryBot.create(:category)
+    menu_category = FactoryBot.build(:menu_category, menu_id: menu.id, category_id: category.id)
+
+    expect(menu_category).to be_valid
   end
 
   it 'is invalid without menu_id' do
