@@ -16,4 +16,12 @@ RSpec.describe MenuCategory, type: :model do
 
     expect(menu_category.errors[:menu_id]).to include("can't be blank")
   end
+
+  it 'is invalid without category_id' do
+    menu_category = FactoryBot.build(:menu_category, category_id: nil)
+    
+    menu_category.valid?
+
+    expect(menu_category.errors[:category_id]).to include("can't be blank")
+  end
 end
