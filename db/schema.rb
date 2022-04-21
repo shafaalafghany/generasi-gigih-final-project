@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_143809) do
+ActiveRecord::Schema.define(version: 2022_04_21_163938) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2022_04_21_143809) do
     t.string "menu_name"
     t.integer "menu_price"
     t.string "menu_description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "order_invoice"
+    t.integer "order_total_price"
+    t.text "order_date"
+    t.string "order_status"
+    t.integer "customer_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
