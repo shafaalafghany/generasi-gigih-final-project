@@ -32,4 +32,12 @@ RSpec.describe Order, type: :model do
 
     expect(order.errors[:order_date]).to include("can't be blank")
   end
+
+  it 'is invalid without customer_id' do
+    order = FactoryBot.build(:order, customer_id: nil)
+
+    order.valid?
+
+    expect(order.errors[:customer_id]).to include("can't be blank")
+  end
 end
