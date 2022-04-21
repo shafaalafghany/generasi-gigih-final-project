@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_181828) do
+ActiveRecord::Schema.define(version: 2022_04_21_082108) do
 
   create_table "customers", force: :cascade do |t|
     t.string "customer_name"
     t.string "customer_email"
     t.string "customer_phone"
     t.text "customer_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "menu_name"
+    t.integer "menu_price"
+    t.string "menu_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
