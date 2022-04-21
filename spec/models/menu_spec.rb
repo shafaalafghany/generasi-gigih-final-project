@@ -41,4 +41,12 @@ RSpec.describe Menu, type: :model do
 
     expect(menu.errors[:menu_description]).to include("is too long (maximum is 150 characters)")
   end
+
+  it 'is invalid when price less than 0.01' do
+    menu = FactoryBot.build(:menu, menu_price: 0.001)
+
+    menu.valid?
+
+    expect(menu.errors[:menu_price]).to include("must be greater than 0.01")
+  end
 end
