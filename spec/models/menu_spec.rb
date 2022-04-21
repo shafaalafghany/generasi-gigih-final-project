@@ -13,6 +13,15 @@ RSpec.describe Menu, type: :model do
     menu = FactoryBot.build(:menu, menu_name: nil)
 
     menu.valid?
+
     expect(menu.errors[:menu_name]).to include("can't be blank")
+  end
+
+  it 'is invalid without a price' do
+    menu = FactoryBot.build(:menu, menu_price: nil)
+
+    menu.valid?
+
+    expect(menu.errors[:menu_price]).to include("can't be blank")
   end
 end
