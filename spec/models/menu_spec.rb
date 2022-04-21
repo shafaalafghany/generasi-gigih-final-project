@@ -57,4 +57,14 @@ RSpec.describe Menu, type: :model do
 
     expect(menu.errors[:menu_price]).to include("must be greater than 0.01")
   end
+
+  describe 'self#by_letter' do
+    it 'should return a sorted array of result that match' do
+      menu1 = FactoryBot.create(:menu, menu_name: 'Nasi Goreng')
+      menu2 = FactoryBot.create(:menu, menu_name: 'Kerak Telor')
+      menu3 = FactoryBot.create(:menu, menu_name: 'Nasi Kuning')
+
+      expect(Menu.by_letter("N")).to eq([menu1, menu3])
+    end
+  end
 end
