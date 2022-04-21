@@ -32,10 +32,19 @@ RSpec.describe MenuCategory, type: :model do
 
     expect(menu_category.errors[:category_id]).to include("can't be blank")
   end
-  
+
   it 'has invalid menu_id' do
     category = FactoryBot.create(:category)
     menu_category = FactoryBot.build(:menu_category, menu_id: 2, category_id: category.id)
+
+    menu_category.valid?
+
+    expect(menu_category).to be_invalid
+  end
+
+  it 'has invalid category_id' do
+    menu = FactoryBot.create(:menu)
+    menu_category = FactoryBot.build(:menu_category, menu_id: menu.id, category_id: 2)
 
     menu_category.valid?
 
