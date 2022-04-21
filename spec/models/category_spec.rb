@@ -16,4 +16,13 @@ RSpec.describe Category, type: :model do
 
     expect(category.errors[:category_name]).to include("can't be blank")
   end
+
+  it 'is invalid with a duplicate name' do
+    category1 = FactoryBot.create(:category, category_name: 'Rice')
+    category2 = FactoryBot.build(:category, category_name: 'Rice')
+
+    category2.valid?
+
+    expect(category2.errors[:category_name]).to include("has already been taken")
+  end
 end
