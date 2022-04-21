@@ -33,4 +33,12 @@ RSpec.describe Menu, type: :model do
 
     expect(menu2.errors[:menu_name]).to include("has already been taken")
   end
+
+  it 'is invalid with a description more than 150 characters' do
+    menu = FactoryBot.build(:menu_with_invalid_description)
+
+    menu.valid?
+
+    expect(menu2.errors[:menu_description]).to include("max length")
+  end
 end
