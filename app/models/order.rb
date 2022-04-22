@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  belongs_to :user
+
   validates :order_invoice,
   :order_total_price,
   :order_date,
