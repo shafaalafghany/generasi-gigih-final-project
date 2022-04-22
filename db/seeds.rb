@@ -7,3 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(user_username: "admin", user_password: "admin")
+
+Category.create(category_name: "Aneka Nasi")
+Category.create(category_name: "Tanpa Nasi")
+Category.create(category_name: "Aneka Kerang")
+Category.create(category_name: "Kepiting")
+Category.create(category_name: "Aneka Bakaran Seafood")
+Category.create(category_name: "Lobster")
+Category.create(category_name: "Signature")
+Category.create(category_name: "Minuman")
