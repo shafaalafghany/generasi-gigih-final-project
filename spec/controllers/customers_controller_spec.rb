@@ -2,7 +2,14 @@ require 'rails_helper'
 
 RSpec.describe CustomersController do
   describe 'GET #index' do
-    it 'populates an array of all customers'
+    it 'populates an array of all customers' do
+      ganda = create(:customer, customer_name: "Ganda")
+      fachry = create(:customer, customer_name: "Fachry")
+      shafa = create(:customer, customer_name: "Shafa")
+
+      get :index
+      expect(assigns(:customer)).to match_array([ganda, fachry, shafa])
+    end
     it 'renders the :index template'
   end
 
