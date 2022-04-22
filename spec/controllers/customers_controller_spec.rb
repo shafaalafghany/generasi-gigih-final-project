@@ -48,7 +48,10 @@ RSpec.describe CustomersController do
           post :create, params: { customer: attributes_for(:customer) }
         }.to change(Customer, :count).by(1)
       end
-      it 'redirects to customers#show'
+      it 'redirects to customers#index' do
+        post :create, params: { customer: attributes_for(:customer) }
+        expect(response).to redirect_to('/customers')
+      end
     end
     
     context 'with invalid attributes' do
