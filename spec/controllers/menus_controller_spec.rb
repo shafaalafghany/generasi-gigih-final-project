@@ -10,4 +10,16 @@ RSpec.describe MenusController do
     it "assign a new menu for @menu"
     it "renders the :new template"
   end
+
+  describe 'POST #create' do
+    context "with valid attributes" do
+      it "saves the new menu in the database"
+      it "redirects to customer#index"
+    end
+
+    context "with invalid attributes" do
+      it "does not save the new customer in the database"
+      it "re-renders the :new tempalte"
+    end
+  end
 end
