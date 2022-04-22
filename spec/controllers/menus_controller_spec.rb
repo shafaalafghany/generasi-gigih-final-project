@@ -2,7 +2,15 @@ require 'rails_helper'
 
 RSpec.describe MenusController do
   describe 'GET #index' do
-    it "populates an array of all customers"
+    it "populates an array of all customers"  do
+      nasi_gurita = create(:menu, menu_name: "Nasi Gurita")
+      nasi_udang = create(:menu, menu_name: "Nasi Udang")
+      nasi_cumi = create(:menu, menu_name: "Nasi Cumi")
+      
+      get :index
+      expect(assigns(:menu)).to match_array([nasi_gurita, nasi_udang, nasi_cumi])
+    end
+
     it "renders the :index template"
   end
 
