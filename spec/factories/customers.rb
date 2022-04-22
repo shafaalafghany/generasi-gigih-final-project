@@ -5,4 +5,11 @@ FactoryBot.define do
     customer_phone { Faker::PhoneNumber.cell_phone_in_e164 }
     customer_address { Faker::Address.full_address }
   end
+
+  factory :invalid_customer do
+    customer_name { nil }
+    customer_email { nil }
+    customer_phone { nil }
+    customer_address { nil }
+  end
 end
