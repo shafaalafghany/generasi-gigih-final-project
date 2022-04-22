@@ -60,4 +60,16 @@ RSpec.describe OrderDetail, type: :model do
 
     expect(order_detail.errors[:menu_id]).to include("can't be blank")
   end
+
+  it 'has invalid order_id' do
+    menu = FactoryBot.create(:menu)
+    user = FactoryBot.create(:user)
+    customer = FactoryBot.create(:customer)
+    order = FactoryBot.create(:order, user_id: user.id, customer_id: customer.id)
+    order_detail = FactoryBot.build(:order_detail, order_id: 2, menu_id: menu.id)
+
+    order_detail.valid?
+
+    expect(order_detail).to be_invalid
+  end
 end
