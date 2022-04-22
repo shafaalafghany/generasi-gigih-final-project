@@ -58,7 +58,14 @@ RSpec.describe Order, type: :model do
   end
 
   it 'is valid when NEW for status value' do
-    order = FactoryBot.build(:order, user_id: "NEW")
+    user = FactoryBot.create(:user)
+    customer = FactoryBot.create(:customer)
+    order = FactoryBot.build(
+      :order,
+      order_status: "NEW",
+      user_id: user.id,
+      customer_id: customer.id
+    )
 
     order.valid?
 
