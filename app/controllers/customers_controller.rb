@@ -12,8 +12,12 @@ class CustomersController < ApplicationController
   end
 
   def create
+    puts 
     customer = Customer.create(params.require(:customer).permit(:customer_name, :customer_email, :customer_phone, :customer_address))
-
-    redirect_to customers_path
+    if customer.valid?
+      redirect_to customers_path
+    else
+      redirect_to '/customers/new'
+    end
   end
 end
