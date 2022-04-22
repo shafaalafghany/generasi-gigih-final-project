@@ -36,7 +36,10 @@ RSpec.describe MenusController do
           post :create, params: { menu: attributes_for(:menu) }
         }.to change(Menu, :count).by(1)
       end
-      it "redirects to customer#index"
+      it "redirects to customer#index" do
+        post :create, params: { menu: attributes_for(:menu) }
+        expect(response).to redirect_to('/menus')
+      end
     end
 
     context "with invalid attributes" do
