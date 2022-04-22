@@ -48,7 +48,10 @@ RSpec.describe MenusController do
           post :create, params: { menu: attributes_for(:invalid_menu) }
         }.not_to change(Menu, :count)
       end
-      it "re-renders the :new tempalte"
+      it "re-renders the :new template" do
+        post :create, params: { menu: attributes_for(:invalid_menu) }
+        expect(response).to render_template :new
+      end
     end
   end
 
