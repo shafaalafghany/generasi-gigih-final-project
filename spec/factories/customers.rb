@@ -6,7 +6,7 @@ FactoryBot.define do
     customer_address { Faker::Address.full_address }
   end
 
-  factory :invalid_customer do
+  factory :invalid_customer, parent: :customer do
     customer_name { nil }
     customer_email { nil }
     customer_phone { nil }
