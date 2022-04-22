@@ -43,7 +43,11 @@ RSpec.describe MenusController do
     end
 
     context "with invalid attributes" do
-      it "does not save the new customer in the database"
+      it "does not save the new customer in the database" do
+        expect {
+          post :create, params: { menu: attributes_for(:invalid_menu) }
+        }.not_to change(Menu, :count)
+      end
       it "re-renders the :new tempalte"
     end
   end
