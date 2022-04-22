@@ -88,7 +88,14 @@ RSpec.describe Order, type: :model do
   end
 
   it 'is valid when CANCELED for status value' do
-    order = FactoryBot.build(:order, user_id: "CANCELED")
+    user = FactoryBot.create(:user)
+    customer = FactoryBot.create(:customer)
+    order = FactoryBot.build(
+      :order,
+      order_status: "CANCELED",
+      user_id: user.id,
+      customer_id: customer.id
+    )
 
     order.valid?
 
