@@ -22,4 +22,9 @@ RSpec.describe MenusController do
       it "re-renders the :new tempalte"
     end
   end
+
+  describe 'GET #edit' do
+    it "assigns the requested menu to @menu"
+    it "renders the :edit template"
+  end
 end
