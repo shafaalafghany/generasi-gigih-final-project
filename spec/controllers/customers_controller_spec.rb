@@ -13,7 +13,11 @@ RSpec.describe CustomersController do
       expect(assigns(:customer)).to eq customer
     end
 
-    it  "renders the :show template"
+    it  "renders the :show template" do
+      customer = create(:customer)
+      get :show, params: { id: customer}
+      expect(response).to render_template :show
+    end
   end
 
   describe 'GET #new' do
