@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MenusController do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'GET #index' do
+    it "populates an array of all customers"
+    it "renders the :index template"
+  end
 end
