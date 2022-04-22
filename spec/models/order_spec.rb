@@ -48,4 +48,12 @@ RSpec.describe Order, type: :model do
 
     expect(order.errors[:user_id]).to include("can't be blank")
   end
+
+  it 'is valid when NEW for status value' do
+    order = FactoryBot.build(:order, user_id: "NEW")
+
+    order.valid?
+
+    expect(order).to be_valid
+  end
 end
