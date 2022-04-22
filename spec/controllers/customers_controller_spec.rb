@@ -10,4 +10,9 @@ RSpec.describe CustomersController do
     it 'assigns the requested customer to @customer'
     it  "renders the :show template"
   end
+
+  describe 'GET #new' do
+    it 'assigns a new customer to @customer'
+    it 'renders the :new template'
+  end
 end
