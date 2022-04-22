@@ -56,4 +56,12 @@ RSpec.describe Order, type: :model do
 
     expect(order).to be_valid
   end
+
+  it 'is valid when PAID for status value' do
+    order = FactoryBot.build(:order, user_id: "PAID")
+
+    order.valid?
+
+    expect(order).to be_valid
+  end
 end
