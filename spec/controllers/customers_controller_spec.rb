@@ -35,7 +35,10 @@ RSpec.describe CustomersController do
       get :new
       expect(assigns(:customer)).to be_a_new(Customer)
     end
-    it 'renders the :new template'
+    it 'renders the :new template' do
+      get :new
+      expect(response).to render_template :new
+    end
   end
 
   describe 'POST #create' do
