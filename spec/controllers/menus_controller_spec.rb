@@ -31,7 +31,11 @@ RSpec.describe MenusController do
 
   describe 'POST #create' do
     context "with valid attributes" do
-      it "saves the new menu in the database"
+      it "saves the new menu in the database" do
+        expect {
+          post :create, params: { menu: attributes_for(:menu) }
+        }.to change(Menu, :count).by(1)
+      end
       it "redirects to customer#index"
     end
 
