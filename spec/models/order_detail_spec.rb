@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe OrderDetail, type: :model do
   it 'has a valid factory' do
-    expect(FactoryBot.build(:order_detail)).to be_valid
+    menu = FactoryBot.create(:menu)
+    user = FactoryBot.create(:user)
+    customer = FactoryBot.create(:customer)
+    order = FactoryBot.create(:order, user_id: user.id, customer_id: customer.id)
+    order_detail = FactoryBot.build(:order_detail, order_id: order.id, menu_id: menu.id)
+
+    expect(order_detail).to be_valid
   end
 
   it 'is valid with menu_name, menu_price, menu_quantity, order_id, menu_id' do
