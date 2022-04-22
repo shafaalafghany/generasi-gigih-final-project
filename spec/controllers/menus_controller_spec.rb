@@ -40,4 +40,9 @@ RSpec.describe MenusController do
       it "re-renders the edit template"
     end
   end
+
+  describe 'DELETE #destroy' do
+    it "deletes the food from the database"
+    it "redirects to food#index"
+  end
 end
