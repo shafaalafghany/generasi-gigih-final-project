@@ -60,7 +60,10 @@ RSpec.describe CustomersController do
           post :create, params: { customer: attributes_for(:invalid_customer) }
         }.not_to change(Customer, :count)
       end
-      it 're-renders the :new template'
+      it 're-renders the :new template' do
+        post :create, params: { customer: attributes_for(:invalid_customer) }
+        expect(response).to redirect_to('/customers/new')
+      end
     end
   end
 end
