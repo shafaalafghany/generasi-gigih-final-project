@@ -5,12 +5,16 @@ RSpec.describe Order, type: :model do
     user = FactoryBot.create(:user)
     customer = FactoryBot.create(:customer)
     order = FactoryBot.build(:order, user_id: user.id, customer_id: customer.id)
-    
+
     expect(order).to be_valid
   end
 
   it 'is valid with invoice, total_price, date, status' do
-    expect(FactoryBot.build(:order)).to be_valid
+    user = FactoryBot.create(:user)
+    customer = FactoryBot.create(:customer)
+    order = FactoryBot.build(:order, user_id: user.id, customer_id: customer.id)
+    
+    expect(order).to be_valid
   end
 
   it 'is invalid without invoice' do
