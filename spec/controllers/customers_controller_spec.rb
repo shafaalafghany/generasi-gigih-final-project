@@ -7,7 +7,12 @@ RSpec.describe CustomersController do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested customer to @customer'
+    it 'assigns the requested customer to @customer' do
+      customer = create(:customer)
+      get :show, params: { id: customer}
+      expect(assigns(:customer)).to eq customer
+    end
+
     it  "renders the :show template"
   end
 
