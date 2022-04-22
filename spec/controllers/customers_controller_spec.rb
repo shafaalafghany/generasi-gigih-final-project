@@ -43,7 +43,11 @@ RSpec.describe CustomersController do
 
   describe 'POST #create' do
     context 'with valid attributes' do
-      it 'saves the new customer in the database'
+      it 'saves the new customer in the database' do
+        expect {
+          post :create, params: { customer: attributes_for(:customer) }
+        }.to change(Customer, :count).by(1)
+      end
       it 'redirects to customers#show'
     end
     
