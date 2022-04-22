@@ -11,7 +11,10 @@ RSpec.describe MenusController do
       expect(assigns(:menu)).to match_array([nasi_gurita, nasi_udang, nasi_cumi])
     end
 
-    it "renders the :index template"
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template :index
+    end
   end
 
   describe 'GET #new' do
