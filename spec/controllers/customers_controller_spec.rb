@@ -55,7 +55,11 @@ RSpec.describe CustomersController do
     end
     
     context 'with invalid attributes' do
-      it 'does not save the new customer in the database'
+      it 'does not save the new customer in the database' do
+        expect {
+          post :create, params: { customer: attributes_for(:invalid_customer) }
+        }.not_to change(Customer, :count)
+      end
       it 're-renders the :new template'
     end
   end
