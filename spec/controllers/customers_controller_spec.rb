@@ -10,7 +10,10 @@ RSpec.describe CustomersController do
       get :index
       expect(assigns(:customer)).to match_array([ganda, fachry, shafa])
     end
-    it 'renders the :index template'
+    it 'renders the :index template' do
+      get :index
+      expect(response).to render_template :index
+    end
   end
 
   describe 'GET #show' do
