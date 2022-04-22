@@ -12,4 +12,10 @@ class MenusController < ApplicationController
 
   def delete
   end
+
+  def create
+    menu = Menu.create(params.require(:menu).permit(:menu_name, :menu_price, :menu_description))
+
+    redirect_to menus_path
+  end
 end
