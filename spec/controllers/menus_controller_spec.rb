@@ -27,4 +27,17 @@ RSpec.describe MenusController do
     it "assigns the requested menu to @menu"
     it "renders the :edit template"
   end
+
+  describe 'PATCH #update' do
+    context "with valid attributes" do
+      it "locates the requested @menu"
+      it "changes @menu's attributes"
+      it "redirects to the food"
+    end
+
+    context "With invalid attributes" do
+      it "does not save the updated menu in the database"
+      it "re-renders the edit template"
+    end
+  end
 end
