@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
+  belongs_to :customer
 
   validates :order_invoice,
   :order_total_price,
