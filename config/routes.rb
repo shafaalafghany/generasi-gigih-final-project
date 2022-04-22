@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'menus/index'
-  get 'menus/new'
-  get 'menus/edit'
-  get 'menus/delete'
+  resources :menus
   resources :customers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
