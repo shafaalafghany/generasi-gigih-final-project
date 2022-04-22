@@ -18,7 +18,11 @@ RSpec.describe MenusController do
   end
 
   describe 'GET #new' do
-    it "assign a new menu for @menu"
+    it "assign a new menu for @menu" do
+      get :new
+      expect(assigns(:menu)).to be_a_new(Menu)
+    end
+
     it "renders the :new template"
   end
 
