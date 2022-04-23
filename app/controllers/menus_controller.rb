@@ -8,6 +8,7 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   def delete
