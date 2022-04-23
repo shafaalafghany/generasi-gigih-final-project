@@ -114,6 +114,9 @@ RSpec.describe MenusController do
         delete :destroy, params: { id: @menu }
       }.to change(Menu, :count).by(-1)
     end
-    it "redirects to food#index"
+    it "redirects to food#index" do
+      delete :destroy, params: { id: @menu }
+      expect(response).to redirect_to menus_url
+    end
   end
 end
