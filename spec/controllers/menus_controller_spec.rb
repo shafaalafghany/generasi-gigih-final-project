@@ -74,7 +74,11 @@ RSpec.describe MenusController do
     end
 
     context "with valid attributes" do
-      it "locates the requested @menu"
+      it "locates the requested @menu" do
+        patch :update, params: { id: @menu, food: attributes_for(:menu) }
+        expect(assigns(:menu)).to eq @menu
+      end
+      
       it "changes @menu's attributes"
       it "redirects to the food"
     end
