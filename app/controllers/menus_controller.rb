@@ -11,7 +11,9 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
   end
 
   def create
