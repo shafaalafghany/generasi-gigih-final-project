@@ -85,7 +85,10 @@ RSpec.describe MenusController do
         expect(@menu.menu_name).to eq('Nasi Gurita')
       end
 
-      it "redirects to the food"
+      it "redirects to the food" do
+        patch :update, params: { id: @menu, menu: attributes_for(:menu) }
+        expect(response).to redirect_to @menu
+      end
     end
 
     context "With invalid attributes" do
