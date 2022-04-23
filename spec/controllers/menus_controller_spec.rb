@@ -96,7 +96,11 @@ RSpec.describe MenusController do
         patch :update, params: { id: @menu, menu: attributes_for(:invalid_menu, menu_name: 'Nasi Gurita', menu_price: 'Test') }
         expect(@menu.menu_name).not_to eq('Nasi Gurita')
       end
-      it "re-renders the edit template"
+      it "re-renders the edit template" do
+        patch :update, params: { id: @menu, menu: attributes_for(:invalid_menu) }
+        expect(assigns(:menu)).to eq @menu
+        expect(response).to render_template :edit
+      end
     end
   end
 
