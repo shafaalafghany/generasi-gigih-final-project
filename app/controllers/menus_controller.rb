@@ -29,7 +29,7 @@ class MenusController < ApplicationController
 
   def update
     @menu = Menu.find(params[:id])
-    check = @menu.update(menus_params)
+    @menu.update(menus_params)
 
     if @menu.valid?
       redirect_to "/menus/#{params[:id]}"
