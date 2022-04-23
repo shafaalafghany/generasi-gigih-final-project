@@ -14,6 +14,8 @@ class MenusController < ApplicationController
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy
+
+    redirect_to menus_path
   end
 
   def create
