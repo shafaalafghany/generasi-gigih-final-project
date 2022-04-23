@@ -19,7 +19,7 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu = Menu.create(params.require(:menu).permit(:menu_name, :menu_price, :menu_description))
+    menu = Menu.create(menus_params)
     if menu.valid?
       redirect_to menus_path
     else
@@ -29,12 +29,18 @@ class MenusController < ApplicationController
 
   def update
     @menu = Menu.find(params[:id])
-    check = @menu.update(params.require(:menu).permit(:menu_name, :menu_price, :menu_description))
+    check = @menu.update(menus_params)
 
     if @menu.valid?
       redirect_to "/menus/#{params[:id]}"
     else
       render :edit
     end
+  end
+
+  private
+
+  def menus_params
+    params.require(:menu).permit(:menu_name, :menu_price, :menu_description)
   end
 end
