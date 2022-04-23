@@ -26,5 +26,7 @@ class MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
     @menu.update(params.require(:menu).permit(:menu_name, :menu_price, :menu_description))
+
+    redirect_to "/menus/#{params[:id]}"
   end
 end
