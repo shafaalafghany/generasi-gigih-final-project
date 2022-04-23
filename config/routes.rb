@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'menucategories/new'
+  resources :orders, except: :destroy
   resources :menus, except: :show
   resources :customers, except: [:edit, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
