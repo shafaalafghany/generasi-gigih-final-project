@@ -130,5 +130,18 @@ RSpec.describe MenusController do
 
       expect(menu_categories).to be_valid
     end
+
+    it 'is valid when every menu has more than 1 category' do
+      menu = create(:menu)
+      category = create(:category)
+      another_category = create(:category, category_name: 'Nasi Gurita')
+      menu_categories = create(:menu_category, menu_id: menu.id, category_id: category.id)
+      another_menu_categories = create(:menu_category, menu_id: menu.id, category_id: another_category.id)
+
+      another_menu_categories.valid?
+
+
+      expect(another_menu_categories).to be_valid
+    end
   end
 end
