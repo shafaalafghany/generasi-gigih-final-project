@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe MenusController do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before :each do
+    @category = create(:category)
+    @another_category = create(:category)
+    @menu = create(:menu)
+  end
 end
