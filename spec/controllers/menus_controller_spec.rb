@@ -69,6 +69,10 @@ RSpec.describe MenusController do
   end
 
   describe 'PATCH #update' do
+    before :each do
+      @menu = create(:menu)  
+    end
+
     context "with valid attributes" do
       it "locates the requested @menu"
       it "changes @menu's attributes"
