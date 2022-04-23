@@ -119,4 +119,16 @@ RSpec.describe MenusController do
       expect(response).to redirect_to menus_url
     end
   end
+
+  describe 'menu validation for category' do
+    it "is valid when every menu at least has 1 category" do
+      menu = create(:menu)
+      category = create(:category)
+      menu_categories = create(:menu_category, menu_id: menu.id, category_id: category.id)
+
+      menu_categories.valid?
+
+      expect(menu_categories).to be_valid
+    end
+  end
 end
