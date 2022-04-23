@@ -105,6 +105,10 @@ RSpec.describe MenusController do
   end
 
   describe 'DELETE #destroy' do
+    before :each do
+      @menu = create(:menu)
+    end
+
     it "deletes the food from the database"
     it "redirects to food#index"
   end
