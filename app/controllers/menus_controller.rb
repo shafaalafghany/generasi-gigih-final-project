@@ -25,5 +25,6 @@ class MenusController < ApplicationController
 
   def update
     @menu = Menu.find(params[:id])
+    @menu.update(params.require(:menu).permit(:menu_name, :menu_price, :menu_description))
   end
 end
